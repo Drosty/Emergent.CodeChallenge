@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Emergent.CodeChallenge.Service.Models;
 
 namespace Emergent.CodeChallenge.Service
 {
@@ -10,11 +11,28 @@ namespace Emergent.CodeChallenge.Service
             if (!string.IsNullOrEmpty(version))
             {
                 var softwares = SoftwareManager.GetAllSoftware();
-                var comparor = new SoftwareComparor(softwares, version);
-                return comparor.GetFilteredSoftware();
+                return FilterSoftware(softwares, version);
             }
 
             return new List<Software>();
+        }
+
+        private IEnumerable<Software> FilterSoftware(IEnumerable<Software> software, string version)
+        {
+            var filteredVersion = new ParsedVersion(version);
+            IList<Software> rtnSoftware = new List<Software>();
+
+            foreach (var item in software)
+            {
+                var itemParsedVersion = new ParsedVersion(item.Version);
+
+                if (itemParsedVersion.CompareTo(filteredVersion) > 0)
+                {
+                    rtnSoftware.Add(item);
+                }
+            }
+
+            return rtnSoftware;
         }
     }
 }
