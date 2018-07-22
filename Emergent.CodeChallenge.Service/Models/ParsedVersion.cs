@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Emergent.CodeChallenge.Service.Models
 {
     public class ParsedVersion : IComparable
@@ -36,11 +37,6 @@ namespace Emergent.CodeChallenge.Service.Models
                 int.TryParse(parts[2], out release);
                 this.Release = release;
             }
-        }
-
-        public bool IsValid()
-        {
-            return Major != default(int);
         }
 
         public int CompareTo(object obj)
