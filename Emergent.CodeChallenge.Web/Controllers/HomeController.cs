@@ -11,14 +11,13 @@ namespace Emergent.CodeChallenge.Web.Controllers
 
         public IActionResult Index(VersionRequest request)
         {
-            if (request?.Version != null) 
+            var version = "0";
+            if (request?.Version != null)
             {
-                @ViewBag.Software = _softwareService.GetSoftwareGreaterThanVersion(request.Version);
-
-                var t = _softwareService.GetSoftwareGreaterThanVersion(request.Version);
-                t.Any();
+                version = request.Version;
             }
 
+            @ViewBag.Software = _softwareService.GetSoftwareGreaterThanVersion(version);
             return View();
         }
     }
