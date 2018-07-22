@@ -1,39 +1,58 @@
-﻿@model Emergent.CodeChallenge.Web.Models.VersionRequest
-
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 
+<div id="software-component">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Enter Version</h2>
 
-<div class="row">
-    <div class="col-sm-12">
-        <h2>Enter Version</h2>
-
-        @using (Html.BeginForm(FormMethod.Post))
-        {
-            @Html.TextBoxFor(m => m.Version)
-            <input type="submit" value="Submit" />
-        }
-
-        @if (ViewBag.Software != null)
-        {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Version</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var software in ViewBag.Software)
-                {
-                <tr>
-                    <td>@software.Name</td>
-                    <td>@software.Version</td>
-                </tr>
-                }
-            </tbody>
-        </table>
-        }
+            <input id="Version" v-model="filter" name="Version" type="text" value="">
+            <button v-on:click="getSoftware">Submit</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in software">
+                        <td>{{item.name}}</td>
+                        <td>{{item.version}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12">
+            <p>Total Count: {{software.length}}</p>
+        </div>
     </div>
 </div>
+
+<script>new Vue({
+        el: "#software-component",
+        data() {
+            return {
+                filter: "",
+                software: []
+            }
+        },
+        created() {
+            this.getSoftware();
+        },
+        methods: {
+            getSoftware() {
+                this.$http.get('/software?version=' + this.filter).then(response => {
+                    this.software = response.body;
+                }, response => {
+                    // error callback
+                    alert('something went wrong, should probably handle this better!');
+                });
+            }
+        }
+});</script>

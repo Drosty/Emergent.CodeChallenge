@@ -17,4 +17,8 @@
     <Content Remove="Views\Shared\Error.cshtml" />
     <Content Remove="Views\Home\About.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Controllers\ApiController.cs" />
+    <Compile Remove="Models\VersionRequest.cs" />
+  </ItemGroup>
 </Project>
