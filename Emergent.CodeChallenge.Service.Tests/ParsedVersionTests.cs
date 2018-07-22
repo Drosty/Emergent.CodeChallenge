@@ -52,6 +52,8 @@ namespace Emergent.CodeChallenge.Service.Tests
             Assert.AreEqual(0, CompareVersions("1", "1"));
             Assert.AreEqual(0, CompareVersions("1.1", "1.1"));
             Assert.AreEqual(0, CompareVersions("1.1.1", "1.1.1"));
+            Assert.AreEqual(0, CompareVersions("1.1", "1.1.0"));
+            Assert.AreEqual(0, CompareVersions("1", "1.0.0"));
 
             Assert.AreEqual(1, CompareVersions("5.1.1", "1.1.1"));
             Assert.AreEqual(1, CompareVersions("5.1.1", "1.1"));
@@ -64,13 +66,22 @@ namespace Emergent.CodeChallenge.Service.Tests
             Assert.AreEqual(1, CompareVersions("5", "1.1.1"));
             Assert.AreEqual(1, CompareVersions("5", "1.1"));
             Assert.AreEqual(1, CompareVersions("5", "1"));
+
+            Assert.AreEqual(1, CompareVersions("5.2.1", "5.1.1"));
+            Assert.AreEqual(1, CompareVersions("5.2.1", "5.1"));
+            Assert.AreEqual(1, CompareVersions("5.2.1", "5"));
+
+            Assert.AreEqual(1, CompareVersions("5.2.3", "5.2.1"));
+            Assert.AreEqual(1, CompareVersions("5.2.3", "5.2"));
+            Assert.AreEqual(1, CompareVersions("5.2.3", "5"));
+
         }
 
         private int CompareVersions(string version1, string version2)
         {
             var one = new ParsedVersion(version1);
             var two = new ParsedVersion(version2);
-            return version1.CompareTo(version2);
+            return one.CompareTo(two);
         }
     }
 }
