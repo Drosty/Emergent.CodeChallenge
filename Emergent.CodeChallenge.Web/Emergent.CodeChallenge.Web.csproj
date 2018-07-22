@@ -15,5 +15,6 @@
     <Content Remove="Views\Shared\_CookieConsentPartial.cshtml" />
     <Content Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
     <Content Remove="Views\Shared\Error.cshtml" />
+    <Content Remove="Views\Home\About.cshtml" />
   </ItemGroup>
 </Project>
