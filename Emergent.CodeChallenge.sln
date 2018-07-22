@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emergent.CodeChallenge.Web", "Emergent.CodeChallenge.Web\Emergent.CodeChallenge.Web.csproj", "{750171A0-782D-402D-A519-739DAFE4180F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emergent.CodeChallenge.Service", "Emergent.CodeChallenge.Service\Emergent.CodeChallenge.Service.csproj", "{FC9FB5D7-A380-4FF0-9C3D-B9D4A0185FA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emergent.CodeChallenge.Service.Tests", "Emergent.CodeChallenge.Service.Tests\Emergent.CodeChallenge.Service.Tests.csproj", "{07D43F5F-11D9-42D4-A448-C141AA3A30E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +17,13 @@ Global
 		{750171A0-782D-402D-A519-739DAFE4180F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{750171A0-782D-402D-A519-739DAFE4180F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{750171A0-782D-402D-A519-739DAFE4180F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC9FB5D7-A380-4FF0-9C3D-B9D4A0185FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9FB5D7-A380-4FF0-9C3D-B9D4A0185FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9FB5D7-A380-4FF0-9C3D-B9D4A0185FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9FB5D7-A380-4FF0-9C3D-B9D4A0185FA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07D43F5F-11D9-42D4-A448-C141AA3A30E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07D43F5F-11D9-42D4-A448-C141AA3A30E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07D43F5F-11D9-42D4-A448-C141AA3A30E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07D43F5F-11D9-42D4-A448-C141AA3A30E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

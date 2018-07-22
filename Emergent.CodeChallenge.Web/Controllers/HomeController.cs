@@ -1,43 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Emergent.CodeChallenge.Web.Models;
+using Emergent.CodeChallenge.Service;
+using System.Linq;
 
 namespace Emergent.CodeChallenge.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        SoftwareService _softwareService = new SoftwareService();
 
-        public IActionResult About()
+        public IActionResult Index(VersionRequest request)
         {
-            ViewData["Message"] = "Your application description page.";
+            if (request?.Version != null) 
+            {
+                @ViewBag.Software = _softwareService.GetSoftwareGreaterThanVersion(request.Version);
 
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
+                var t = _softwareService.GetSoftwareGreaterThanVersion(request.Version);
+                t.Any();
+            }
 
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
