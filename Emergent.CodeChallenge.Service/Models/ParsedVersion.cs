@@ -10,7 +10,7 @@ namespace Emergent.CodeChallenge.Service.Models
 
         public ParsedVersion(string version)
         {
-            if (version == null)
+            if (string.IsNullOrEmpty(version))
             {
                 return;
             }

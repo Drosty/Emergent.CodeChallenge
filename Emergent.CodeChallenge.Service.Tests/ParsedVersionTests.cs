@@ -70,7 +70,6 @@ namespace Emergent.CodeChallenge.Service.Tests
             Assert.AreEqual(1, CompareVersions("5.2.3", "5.2.1"));
             Assert.AreEqual(1, CompareVersions("5.2.3", "5.2"));
             Assert.AreEqual(1, CompareVersions("5.2.3", "5"));
-
         }
 
         private int CompareVersions(string version1, string version2)
